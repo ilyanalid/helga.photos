@@ -45,3 +45,9 @@ export function useWindowSize() {
     });
     return { width, height };
   }
+
+  const Serializers = {
+    boolean: {
+      read(v) { return v === 'true'; },
+      write(v) { return String(v); },
+    },
