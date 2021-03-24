@@ -17,3 +17,8 @@ function useEventListener(type, listener, options, target) {
     target.removeEventListener(type, listener, options);
   });
 }
+
+export async function takeScreenshot(
+  selector = '#phone-case-inner',
+  filename = `foto-rehearsal-${new Date().toISOString().slice(0, 19).replace(/[:T]/g, '-')}.png`,
+)
