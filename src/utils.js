@@ -51,3 +51,20 @@ export function useWindowSize() {
       read(v) { return v === 'true'; },
       write(v) { return String(v); },
     },
+    object: {
+        read(v, d) { return v ? JSON.parse(v) : d; },
+        write(v) { return JSON.stringify(v); },
+      },
+      number: {
+        read(v, d) { return v != null ? Number.parseFloat(v) : d; },
+        write(v) { return String(v); },
+      },
+      any: {
+        read(v, d) { return v !== null && v !== undefined ? v : d; },
+        write(v) { return String(v); },
+      },
+      string: {
+        read(v, d) { return v !== null && v !== undefined ? v : d; },
+        write(v) { return String(v); },
+      },
+    };
