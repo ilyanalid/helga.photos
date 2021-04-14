@@ -134,3 +134,23 @@ export function useWindowSize() {
           img.src = url;
         });
       }
+
+
+      export async function getDataUrls(files) {
+        return await Promise.all(
+          Array
+            .from(files)
+            .map((file) => {
+              return new Promise((resolve) => {
+                const reader = new FileReader();
+                reader.addEventListener('load', async () => {
+                  const url = reader.result;
+                  const resized = await resizedataURL(url, 512, 512);
+                  resolve(resized);
+                }, false);
+      
+                reader.readAsDataURL(file);
+              });
+            }),
+        );
+      }
