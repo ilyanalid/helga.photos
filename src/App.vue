@@ -71,13 +71,6 @@
 
         <div class="grid" :style="{ gridGap: `${gap}px` }">
           <post
-            v-for="(post, idx) in posts"
-            :key="idx"
-            :post="post"
-            :size="size"
-            :mode="imageMode"
-            :shooting="shooting"
-            :draggable="true"
             @drop.native="e => drop(idx, e)"
             @dragend.native="dragend"
             @dragover.native="allowDrop"
