@@ -118,3 +118,12 @@ export default {
       const shooting = ref(false)
       const locked = ref(false)
       const toast = ref('')
+      const imageMode = ref(0) // 0: photo, 1: thief, 2: pattele
+      let db
+      let toastTimer
+  
+      openDb().then(async (i) => {
+        db = i
+        window.db = db
+        posts.value = await loadPosts(db, tab.value)
+      })
