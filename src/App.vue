@@ -101,3 +101,20 @@
     >Drop here to Remove</div>
   </div>
 </template>
+
+
+export default {
+    components: {
+      Post,
+    },
+    setup() {
+      const tab = useStorage(`${CONFIG_PREFIX}-tab`, 0)
+      const gap = useStorage(`${CONFIG_PREFIX}-gap`, 3)
+      const dark = useStorage(`${CONFIG_PREFIX}-dark`, false)
+  
+      const { width, height } = useWindowSize()
+      const posts = ref([])
+      const dragging = ref(false)
+      const shooting = ref(false)
+      const locked = ref(false)
+      const toast = ref('')
