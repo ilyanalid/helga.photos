@@ -102,7 +102,7 @@
   </div>
 </template>
 
-
+<script>
 /* eslint-disable no-self-assign */
 import { computed, ref, watch, nextTick } from 'vue'
 import { useWindowSize, loadPosts, savePosts, openDb, popup, useStorage, CONFIG_PREFIX, takeScreenshot } from './utils.js'
@@ -227,3 +227,67 @@ export default {
       tab.value = (tab.value + 1) % 3
       toast.value = `Tab ${tab.value + 1}`
     }
+
+    watch(
+      posts,
+      () => {
+        savePosts(db, posts.value, tab.value)
+      }, {
+      deep: true,
+    },
+    )
+
+    watch(
+      tab,
+      async () => {
+        posts.value = await loadPosts(db, tab.value)
+      },
+    )
+
+    watch(
+      toast,
+      () => {
+        if (toast.value) {
+          clearTimeout(toastTimer)
+          toastTimer = setTimeout(() => {
+            toast.value = ''
+          }, TOAST_TIMEOUT)
+        }
+      },
+    )
+
+    return {
+      inPopup: window.name === 'helga-photos',
+      shoot,
+      height,
+      width,
+      gap,
+      toast,
+      dark,
+      dragging,
+      tab,
+      size,
+      locked,
+      shooting,
+      isDesktop,
+      caseStyle,
+      caseWidth,
+      dragend,
+      posts,
+      openPopup,
+      handleUploaded,
+      drop,
+      drag,
+      allowDrop,
+      dropRemove,
+      add,
+      addFront,
+      imageMode,
+      toggleDark,
+      toggleGap,
+      switchMode,
+      switchTab,
+    }
+  },
+}
+</script>
