@@ -420,9 +420,6 @@ a
     grid-template-columns 1fr 1fr 1fr
 
 .trashbin
-  position fixed
-  bottom 0
-  left 50%
   right 0
   padding 1rem 0
   background #bd3a3a
