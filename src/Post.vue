@@ -109,3 +109,61 @@
   }
   </script>
   
+  
+  <style lang="stylus">
+    .frame
+      background var(--theme-shadow)
+      position relative
+      background-repeat no-repeat
+      background-position center
+      background-size cover
+      overflow hidden
+      width 100%
+    
+      .image
+        position absolute
+        top 50%
+        left 50%
+        transform translate(-50%, -50%)
+        pointer-events none
+    
+      .upload
+        position absolute
+        top 0
+        left 0
+        right 0
+        bottom 0
+        opacity 0
+        width 100%
+    
+      .icon
+        position absolute
+        top 50%
+        left 50%
+        font-size 5rem
+        opacity 0.1
+        transform translate(-50%, -50%)
+    
+      .dots
+        position absolute
+        left 0
+        bottom 0
+        right 0
+        display grid
+        grid-template-columns 1fr 1fr 1fr 1fr
+    
+        .dot
+          border-radius 50%
+    
+      .info
+        font-family 'Inconsolata', monospace
+        padding 1rem
+        margin 0
+        opacity 0
+        transition .2s ease-in
+    
+      &:hover
+        .info
+          opacity 1
+    </style>
+    
