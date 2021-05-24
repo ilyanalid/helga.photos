@@ -118,14 +118,18 @@
       background-size cover
       overflow hidden
       width 100%
-    
-      .upload
+
+      .dots
         position absolute
-        top 0
-        right 0
+        left 0
         bottom 0
-        opacity 0
-        width 100%
+        right 0
+    
+      .dot
+        border-radius 50%
+  
+    
+
     
       .icon
         position absolute
@@ -133,15 +137,15 @@
         opacity 0.1
         transform translate(-50%, -50%)
     
-      .dots
+
+        .upload
         position absolute
-        left 0
-        bottom 0
+        top 0
         right 0
-    
-        .dot
-          border-radius 50%
-    
+        bottom 0
+        opacity 0
+        width 100%
+        
       .info
         font-family 'Inconsolata', monospace
         padding 1rem
