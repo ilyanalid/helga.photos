@@ -1,9 +1,5 @@
 <head>
-  <title>Helga Photos</title>
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
+  <title>Helga Phots</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link
     href="https://fonts.googleapis.com/css2?family=Inconsolata&family=Manrope:wght@200;500&display=swap"
@@ -19,12 +15,11 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
   <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/mobile-drag-drop@2.3.0-rc.2/index.min.js"></script>
-  <link rel="stylesheet" href="/style.css" />
 </head>
-<body>
-  <div id="./app"></div>
-  <script>
-    MobileDragDrop.polyfill({ holdToDrag: 500 });
-  </script>
-  <script type="module" src="/index.js"></script>
-</body>
+<div id="app"></div>
+<script type="module">
+import { createApp } from 'vue'
+import App from './src/App.vue'
+
+createApp(App).mount('#app')
+</script>
